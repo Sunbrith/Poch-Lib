@@ -1,38 +1,36 @@
 <template>
-  <img alt="pochlib-logo" id="pochlib-logo" src="./assets/images/logo.png">
-  <div class="btnAjouter">
-    <button
-      depressed
-      rounded
-      dark
-    >
-      Ajouter un livre
-    </button>
-  </div> 
-   <div id="app">
-    <div class="query">
-      <form @submit.prevent="search">
+<div id= "app">
+  <div>
+    <img alt="pochlib-logo" id="pochlib-logo" src="./assets/images/logo.png">
+  </div>
+ <div class="btnAjouter"> 
+    <button depressed rounded dark> Ajouter un livre </button> 
+ </div> 
+  <div class="query">
+      <form @submit.prevent= "search">
         <div>
-          <input type="text" v-model="keyword" placeholder="Titre du livre..." class="input-title" required>
+          <input type="text" v-model= "keyword" placeholder="Titre du livre..." class="input-title" required>
           <input type="submit" value="Rechercher" class="button-title">
           <br> 
           <br>
-          <input type="text" v-model="keyword" placeholder="Auteur..." class="input-author" required>
+          <input type="text" v-model= "keyword" placeholder="Auteur..." class="input-author" required>
           <input type="submit" value="Rechercher" class="button-author">
         </div>
       </form>
     </div>
     <div class="content">
-      <div class="loading" v-if="loadState == 'loading'"></div>
-      <BookList v-if="loadState == 'success'" :books="books"/>
+      <div class="loading" v-if= "loadState == 'loading'"></div>
+      <BookList v-if= "loadState == 'success'" :books= "books"/>
     </div>
   </div>
 </template>
+
 
 <script>
 //import AddABook from './components/AddABook.vue'
 import BookList from '@/components/BookList'
 import axios from 'axios'
+import BookItemVue from './components/BookItem.vue'
 
 export default {
     data() {
@@ -62,7 +60,8 @@ export default {
   },
   components: {
     //AddABook,
-    BookList
+    BookList,
+    BookItemVue
   }
 }
 

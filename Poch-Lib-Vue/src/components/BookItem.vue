@@ -1,13 +1,13 @@
 <template>
   <div class="book-item">
-    <a :href="volumeInfo.previewLink" target="_blank">
-      <template v-if="volumeInfo.imageLinks">
-        <img :src="volumeInfo.imageLinks.thumbnail" :alt="volumeInfo.title">
+    <a :href= "volumeInfo.previewLink" target="_blank">
+      <template v-if= "volumeInfo.imageLinks">
+        <img :src= "volumeInfo.imageLinks.thumbnail" :alt="volumeInfo.title">
       </template>
       <template v-else>
         <img
           src="https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png"
-          :alt="unavailable"
+          :alt= "unavailable"
           width="128"
         >
       </template>
@@ -15,10 +15,10 @@
       <h4>{{ volumeInfo.title }}</h4>
 
       <p class="author">
-        <span v-if="!volumeInfo.authors">No authors to display</span>
+        <span v-if= "!volumeInfo.authors">No authors to display</span>
         <span v-else>
           By
-          <span v-for="(author, index) in volumeInfo.authors" :key="index">
+          <span v-for= "(author, index) in volumeInfo.authors" :key="index">
             <em>
               {{
               index + 1 !== volumeInfo.authors.length && index + 1 !== book.volumeInfo.authors.length-1 ? author + ', ' : index + 1 == book.volumeInfo.authors.length && index+1 !== 1 ? ' and ' + author : author
